@@ -1,3 +1,3 @@
 var name = "Gulaida";
 
-console.log(name);
+console.log(name, "Menin atym");
