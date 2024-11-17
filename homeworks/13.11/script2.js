@@ -1,12 +1,6 @@
-let num = 10;
+//-ші тапсырма
 
-while (num % 3 == 0 && num % 5 == 0) {
-  if (num % 2 === 0) {
-    continue;
-  }
-  console.log("FizzBuzz");
-}
-
+var num1 = +prompt("екі сан енгізіңіз");
 var num2 = +prompt("");
 var result4 = 1;
 var result7 = 1;
