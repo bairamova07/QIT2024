@@ -7,5 +7,3 @@ while (num % 3 == 0 && num % 5 == 0) {
   console.log("FizzBuzz");
 }
 
-let question;
-let score = 5;
