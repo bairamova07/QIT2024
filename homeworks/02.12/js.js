@@ -1,15 +1,15 @@
-const libraryy = {
-  books: [
-    {
-      title: "Менің атым Қожа",
-      author: "Бердібек Соқпақбаев",
-      pages:
-        "кейбір басылымдарда 90-100 бет шамасында ,басқа форматтарда 150 бетке дейін жетуі мүмкін",
-    },
-    
-  ],
-  addBook: function (book) {
-    this.books.push(book);
+const librarry = {
+  title: "Менің атым Қожа",
+  author: "Бердібек Соқпақбаев",
+  pages: 150,
+  isRead: false,
+  addBooks: function () {
+    this.isRead = !this.isRead;
+    return this.isRead;
+  },
+  addLibrarry: function () {
+    return `Сіз ${this.author} авторының ${this.title} кітабын оқып жатырсыз!`;
   },
 };
-console.log(libraryy.books);
+
+console.log(librarry.addBooks());
