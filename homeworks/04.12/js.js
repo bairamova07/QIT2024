@@ -93,7 +93,7 @@ const library = {
       pages: 257,
     },
     {
-      name: "Ұсқан ұя",
+      name: "Ұшқан ұя",
       pages: 175,
     },
   ],
