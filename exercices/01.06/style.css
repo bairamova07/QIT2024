@@ -1,0 +1,43 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.calculator {
+  background: rgba(0, 0, 0, 0.79);
+  width: 20%;
+  height: 60vh;
+  border-radius: 10px;
+}
+.input {
+  background: black;
+  width: 98%;
+  color: white;
+  height: 80px;
+  border-radius: 10px;
+}
+button {
+  color: white;
+  width: 90%;
+  height: 60px;
+  border-radius: 5px;
+  padding: 10px;
+}
+.clickbutton {
+  margin: 10px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+}
+.greybutton {
+  background: rgba(128, 128, 128, 0.83);
+}
+.orangebutton {
+  background: rgba(255, 115, 0, 0.832);
+}
+.blackbutton {
+  background: black;
+}
+.greenbutton {
+  background: rgb(142, 188, 74);
+}

@@ -1,0 +1,25 @@
+body {
+  background: rgb(191, 233, 239);
+  font-family: Arial, Helvetica, sans-serif;
+  min-height: 200vh;
+}
+
+.container {
+  width: 400px;
+  background: rgb(218, 185, 144);
+  padding: 20px;
+  margin: 100px auto;
+}
+
+.arrow {
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  position: fixed;
+  top: 70vh;
+  transform: translateX(-300px);
+  transition: 0.4s all;
+  background: white;
+  border: 1px solid black;
+  display: flex;
+}
