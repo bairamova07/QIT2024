@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //   async function getData2() {
+      //     const data = await fetch(URL);
+      //     const data2 = await data.json();
+      //     console.log(data2);
+      //   }
+      //   getData2();
+
+      //   const url = "https://restcountries.com/v3.1/all";
+      //   async function getCountry() {
+      //     console.log("1");
+      //     const response = await fetch(url);
+
+      //     const countries = await response.json();
+      //     console.log(countries[1].name.common, "2");
+      //     console.log("3");
+      //   }
+      //   getCountry();
+
+      const url = "https://jsonplacegolder.typicode.com/posts";
+      async function fetchPosts() {
+        try {
+          const response = await fetch(url);
+          if (!response.ok) {
+            throw new Error("Посттарды алу мүмкін болмады!");
+          }
+          const cont = await response.json();
+          console.log(cont);
+        } catch (error) {
+          console.error("Қате табылды", error.massage);
+        }
+      }
+      fetchPosts();
+    </script>
+  </body>
+</html>
