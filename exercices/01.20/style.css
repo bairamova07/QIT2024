@@ -1,0 +1,45 @@
+.event {
+  font-size: 30px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  background-color: white;
+}
+
+.h1 {
+  background-color: blueviolet;
+  color: white;
+  font-size: 25px;
+  border-radius: 100%;
+}
+.skip{
+  background-color: blue;
+  color:white
+}
+.img {
+  width: 100px;
+  justify-content: center;
+  align-items: center;
+  margin-left: 500px;
+  padding: 10px;
+}
+
+.jauap {
+  display: grid;
+  position: relative;
+  gap: 8px;
+  margin-top: 30px;
+  grid-template-columns: repeat(2, 1fr);
+}
+.button1 {
+  background-color: red;
+}
+.button2 {
+  background-color: rgb(215, 215, 9);
+}
+.button3 {
+  background-color: blue;
+}
+.button4 {
+  background-color: green;
+}
