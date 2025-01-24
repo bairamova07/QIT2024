@@ -1,43 +1,104 @@
+const questions = [
+  {
+    question: "Қазақстанның астанасы қай қала?",
+    answers: ["Алматы", "Астана", "Шымкент", "Ақтау"],
+    correct: 1,
+  },
+  {
+    question: "Әнұранның авторлары кімдер?",
+    answers: [
+      "Нұрсұлтан Назарбаев пен Жұмекен Нәжімеденов",
+      "Шәмші Қалдаяқов пен Нұрсұлтан Назарбаев",
+      "Жұмекен Нәжімеденов пен Шәмші Қалдаяқов",
+      "Мұхтар Шаханов пен Абай Құнанбаев",
+    ],
+    correct: 2,
+  },
+  {
+    question: "Қазақстанда қанша облыс бар?",
+    answers: ["14", "17", "12", "20"],
+    correct: 1,
+  },
+  {
+    question: "Қазақстан Тәуелсіздігін қай жылы алды?",
+    answers: ["1991", "1986", "1995", "2000"],
+    correct: 0,
+  },
+  {
+    question: "Қазақстанның ең биік тауы қайсы?",
+    answers: ["Алатау", "Хан Тәңірі", "Мұзтау", "Қаратау"],
+    correct: 1,
+  },
+];
+
+let currentQuestionIndex = 0;
+let score = 0;
 let timer;
-let seconds = 0;
+let timeLeft = 15;
 
+const questionElement = document.getElementById("question");
+const answersElement = document.getElementById("answers");
 const timerElement = document.getElementById("timer");
-const startButton = document.getElementById("start");
-const stopButton = document.getElementById("stop");
-const resetButton = document.getElementById("reset");
-
-function formatTime(seconds) {
-  const hrs = String(Math.floor(seconds / 3600)).padStart(2, "0");
-  const mins = String(Math.floor((seconds % 3600) / 60)).padStart(2, "0");
-  const secs = String(seconds % 60).padStart(2, "0");
-  return `${hrs}:${mins}:${secs}`;
-}
-
-function updateTimerDisplay() {
-  timerElement.textContent = formatTime(seconds);
-}
+const nextButton = document.getElementById("next-question");
+const resultElement = document.getElementById("result");
+const scoreElement = document.getElementById("score");
 
 function startTimer() {
-  if (timer) return; // Таймер қазірдің өзінде жұмыс істеп тұрса, қайтадан басталмайды
+  timeLeft = 15;
+  timerElement.textContent = `Уақыт: ${timeLeft}`;
   timer = setInterval(() => {
-    seconds++;
-    updateTimerDisplay();
+    timeLeft--;
+    timerElement.textContent = ` Уақыт: ${timeLeft}`;
+    if (timeLeft === 0) {
+      clearInterval(timer);
+      showNextQuestion();
+    }
   }, 1000);
 }
 
-function stopTimer() {
-  clearInterval(timer);
-  timer = null;
+function loadQuestion() {
+  const currentQuestion = questions[currentQuestionIndex];
+  questionElement.textContent = currentQuestion.question;
+
+  answersElement.innerHTML = "";
+  currentQuestion.answers.forEach((answer, index) => {
+    const answerDiv = document.createElement("div");
+    answerDiv.classList.add(
+      "answer",
+      ["blue", "green", "yellow", "red"][index]
+    );
+    answerDiv.textContent = answer;
+    answerDiv.onclick = () => {
+      clearInterval(timer);
+      if (index === currentQuestion.correct) {
+        score++;
+        answerDiv.style.backgroundColor = "#28A745"; // Жасыл
+      } else {
+        answerDiv.style.backgroundColor = "#DC3545"; // Қызыл
+      }
+      setTimeout(showNextQuestion, 1000);
+    };
+    answersElement.appendChild(answerDiv);
+  });
+
+  startTimer();
 }
 
-function resetTimer() {
-  stopTimer();
-  seconds = 0;
-  updateTimerDisplay();
+function showNextQuestion() {
+  currentQuestionIndex++;
+  if (currentQuestionIndex < questions.length) {
+    loadQuestion();
+  } else {
+    showResult();
+  }
 }
 
-startButton.addEventListener("click", startTimer);
-stopButton.addEventListener("click", stopTimer);
-resetButton.addEventListener("click", resetTimer);
+function showResult() {
+  document.querySelector(".quiz-container").classList.add("hidden");
+  resultElement.classList.remove("hidden");
+  scoreElement.textContent = score;
+}
 
-updateTimerDisplay(); // Алғашқы көрсетілімді орнату
+nextButton.addEventListener("click", showNextQuestion);
+
+loadQuestion();

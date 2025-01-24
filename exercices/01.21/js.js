@@ -1,20 +1,43 @@
-let timee;
-let timess = 0;
-let isTime = false;
+let timer;
+let seconds = 0;
 
-const times = document.getElementById("time");
-const buttons1 = document.getElementById("button1");
-const buttons2 = document.getElementById("button2");
+const timerElement = document.getElementById("timer");
+const startButton = document.getElementById("start");
+const stopButton = document.getElementById("stop");
+const resetButton = document.getElementById("reset");
 
-buttons1.addEventListener("click", () => {
-  if (!isTime) {
-    buttons1();
-    buttons1.textContent = "Тоқтау";
-  } else {
-    stop - T();
-    buttons1.textContent = "Жалғастыру";
-  }
-});
+function formatTime(seconds) {
+  const hrs = String(Math.floor(seconds / 3600)).padStart(2, "0");
+  const mins = String(Math.floor((seconds % 3600) / 60)).padStart(2, "0");
+  const secs = String(seconds % 60).padStart(2, "0");
+  return `${hrs}:${mins}:${secs}`;
+}
 
-buttons2.addEventListener("click", resaltTimer);
+function updateTimerDisplay() {
+  timerElement.textContent = formatTime(seconds);
+}
 
+function startTimer() {
+  if (timer) return; // Таймер қазірдің өзінде жұмыс істеп тұрса, қайтадан басталмайды
+  timer = setInterval(() => {
+    seconds++;
+    updateTimerDisplay();
+  }, 1000);
+}
+
+function stopTimer() {
+  clearInterval(timer);
+  timer = null;
+}
+
+function resetTimer() {
+  stopTimer();
+  seconds = 0;
+  updateTimerDisplay();
+}
+
+startButton.addEventListener("click", startTimer);
+stopButton.addEventListener("click", stopTimer);
+resetButton.addEventListener("click", resetTimer);
+
+updateTimerDisplay(); // Алғашқы көрсетілімді орнату
