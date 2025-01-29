@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Түс таңдау</h1>
+    <input type="color" id="text" />
+    <button onclick="onData()">Түсті сақтау</button>
+    <button onclick="newData()">Тазалау</button>
+    <script>
+      function onData() {
+        const text = document.getElementById("text").value;
+        sessionStorage.getItem("text", text);
+        document.body.innerHTML = ``;
+        color.input.value();
+      }
+      function newData() {
+        const text = document.getElementById("text").value;
+        sessionStorage.clear("text");
+      }
+    </script>
+  </body>
+</html>

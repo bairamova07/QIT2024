@@ -1,0 +1,23 @@
+body {
+  background-color: greenyellow;
+}
+
+h1 {
+  margin: 10px;
+}
+.container {
+  margin-left: 75vh;
+  margin-top: 40vh;
+  box-shadow: 1px 1px 1px 1px black;
+  width: 50vh;
+  height: 25vh;
+  background-color: rgb(167, 237, 167);
+}
+
+input {
+  padding: 30px;
+  margin-left: 10px;
+}
+button {
+  margin: 10px;
+}

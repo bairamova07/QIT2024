@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Есеп жазу және сақтау</h1>
+      <div>
+        <input type="text" id="name" placeholder="Жазба енгізіңіз" />
+      </div>
+      <div>
+        <button onclick="containers()">Сақтау</button>
+        <button onclick="containerr()">Тазалау</button>
+      </div>
+    </div>
+    <script>
+      function containers() {
+        const name = document.getElementById("name").value;
+
+        localStorage.setItem("name", name);
+
+        alert("Мәлімет сақталды!");
+      }
+
+      function containerr() {
+        const name = document.getElementById("name").value;
+
+        localStorage.clear("name", name);
+
+        alert("мәлімет жойылды");
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <input type="text" id="name" placeholder="Аты-жөніңіз?" />
+    <input type="number" id="age" placeholder="Жасыңыз?" />
+    <button onclick="addOn()">Сақтау</button>
+    <button onclick="newOn()">Көрсету</button>
+    <button onclick="notOn()">Clear</button>
+
+    <script>
+      function addOn() {
+        const name = document.getElementById("name").value;
+        const age = document.getElementById("age").value;
+
+        sessionStorage.setItem("name", name);
+        sessionStorage.setItem("age", age);
+
+        alert("Мәлімет сақталды!");
+      }
+
+      function newOn() {
+        const name = sessionStorage.getItem("name");
+        const age = sessionStorage.getItem("age");
+        if (name && age) {
+          alert(`Атыңыз:${name}, Жасыңыз:${age}`);
+        } else {
+          alert("Мәлімет табылмады");
+        }
+      }
+
+      function notOn() {
+        const name = document.getElementById("name").value;
+        const age = document.getElementById("age").value;
+        const clear = sessionStorage.clear("name");
+        const clearr = sessionStorage.clear("age");
+        if (name && age) {
+          alert("The data has cleared");
+        } else {
+          alert("Мәлімет табылмады");
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Жазба сақтау қосымшасы</h1>
+      <div>
+        <input type="text" id="name" placeholder="Жазба енгізіңіз..." />
+      </div>
+      <div class="but1">
+        <button onclick="saveData">Сақтау</button>
+      </div>
+      <div class="but2">
+        <button onclick="loadData">Өшіру</button>
+      </div>
+    </div>
+    <script>
+      function saveData() {
+        const name = document.getElementById("name").value;
+        const age = document.getElementById("age").value;
+        localStorage.setItem("name", name);
+        localStorage.setItem("age", age);
+        alert("Мәлімет сақталды!");
+      }
+
+      function loadData() {
+        const name = localStorage.removeItem("name");
+        const age = localStorage.clear("age");
+        if (name && age) {
+          alert(`Атыңыз:${name}, Жасыңыз:${age}`);
+        } else {
+          alert("Мәлімет табылмады");
+        }
+      }
+    </script>
+  </body>
+</html>

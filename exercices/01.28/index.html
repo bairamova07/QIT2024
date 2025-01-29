@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="name" placeholder="Атыңыз?" />
+    <input type="number" id="age" placeholder="Жасыңыз?" />
+    <button onclick="saveData()">Сақтау</button>
+    <button onclick="loadData()">Көрсeту</button>
+    <script>
+      function saveData() {
+        const name = document.getElementById("name").value;
+        const age = document.getElementById("age").value;
+        localStorage.setItem("name", name);
+        localStorage.setItem("age", age);
+        alert("Мәлімет сақталды!");
+      }
+
+      function loadData() {
+        const name = localStorage.getItem("name");
+        const age = localStorage.getItem("age");
+        if (name && age) {
+          alert(`Атыңыз:${name}, Жасыңыз:${age}`);
+        } else {
+          alert("Мәлімет табылмады");
+        }
+      }
+
+      //   //Мәлімет сақтау
+      //   localStorage.setItem("name", "Aizhan");
+      //   //Мәлімет оқу
+      //   const name = localStorage.getItem("name");
+      //   console.log(name); //Aizhan
+      //   //Мәліметті өшіру
+      //   localStorage.removeItem("name");
+      //   //Барлық мәліметті тазалау
+      //   localStorage.clear();
+    </script>
+  </body>
+</html>
